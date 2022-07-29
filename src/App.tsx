@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { doHealthCheck } from './api';
 import reactLogo from './assets/react.svg';
 
 export const App: React.FC = () => {
   const [ count, setCount ] = useState(0);
 
+  useEffect(() => {
+    doHealthCheck().catch(console.error);
+  }, []);
+  
   return (
     <div className="App">
       <div>
