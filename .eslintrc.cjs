@@ -28,6 +28,7 @@ module.exports = {
     "@typescript-eslint/quotes": ["warn", "single", { "avoidEscape": true }],
     "@typescript-eslint/semi": ["error", "always"],
     "import/no-default-export": "error",
+    "react/prop-types": "off"
   },
   settings: {
     react: {
