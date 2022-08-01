@@ -1,6 +1,9 @@
 // import { useEffect, useState } from 'react';
+// export type AppProps = {
+//   title: string;
+// };
 
-export const App: React.FC = () => {
+export const App: React.FC<AppProps> = () => {
   // const [count, setCount] = useState(0);
 
 
@@ -8,7 +11,7 @@ export const App: React.FC = () => {
   return (
 
     <>
-      <h1>Home Page</h1>
+      <h1>Home</h1>
       <p>Wao!</p>
     </>
 
