@@ -4,6 +4,7 @@ import {
   Gallery,
   Rsvp,
   Home,
+  TestForm
 } from './pages';
 
 
@@ -14,6 +15,7 @@ export const App: React.FC = () => (
         <Route index element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/rsvp" element={<Rsvp />} />
+        <Route path="/testform" element={<TestForm />} />
       </Route>
     </Routes>
   </Router>
