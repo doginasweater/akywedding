@@ -1,5 +1,9 @@
+import { Link } from 'react-router-dom';
+
 export const Header: React.FC = () => {
   return (
-    <h1>Header! Find me in src/layout/header.tsx</h1>
+    <nav>
+      <Link to="/">Home</Link> | <Link to="/rsvp">RSVP</Link> | <Link to="/gallery">Gallery</Link>
+      </nav>
   );
 };
