@@ -1,4 +1,12 @@
-import { Button, ButtonGroup } from '@chakra-ui/react';
+import {
+  Button,
+  ButtonGroup,
+  ExternalLinkIcon
+} from '@chakra-ui/react';
+
+import { Link } from 'react-router-dom';
+
+
 
 export const Home: React.FC = () => {
   return (
@@ -14,7 +22,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div>
-        <Button colorScheme="white" variant="outline">RSVP</Button>
+        <Button colorScheme="whiteAlpha" variant="outline">RSVP</Button>
           </div>
         </section>
 
@@ -28,7 +36,7 @@ export const Home: React.FC = () => {
 
 
       <section>
-        <article className="event">
+        <article className="event" id="event">
           <div>
             <h4>Events</h4>
             <p className="subtitle">Jordan, Niagara, Ontario</p>
@@ -48,14 +56,14 @@ export const Home: React.FC = () => {
       </section>
 
       <section>
-        <article className="travel">
+        <article className="travel" id="travel">
           <h4>Travel</h4>
           <p>Info on hotels, travel, and ride sharing</p>
         </article>  
       </section>
 
       <section>
-        <article className="registry">
+        <article className="registry" id="registry">
           <h4>Registry</h4>
           <p>We are finally taking our dream vacation—previously scheduled for March 2020 and cancelled due to the pandemic—to Japan in autumn 2022 for our honeymoon. We would be so grateful if you would consider contributing to <a href="https://www.honeyfund.com/wedding/mac-donald-komar-10-17-2021" target="blank">our honeymoon fund via Honeyfund</a>.</p>
           <p>If you would prefer to give us a more conventional gift we can enjoy at home rather than away, we have also made a <a href="https://registry.thebay.com/registry/view-registry/akiandrew2021" target="blank">traditional registry at HBC</a>. Feel free to go rogue using this registry as inspiration.</p>
@@ -63,7 +71,7 @@ export const Home: React.FC = () => {
       </section>
 
       <section>
-        <article className="story">
+        <article className="story" id="story">
           <h4>Our Story</h4>
           <p>Aky and Andrew met in 2009 in a tiny little town called Trois-Pistoles on a French programme. Getting to know each other was pretty lost in translation, but Andrew overcame his clunky French and flip phone that kept deleting contact info, and Aky decided to take a chance. We spent that summer emailing each other while Andrew backpacked around Europe, and after a year of dating long distance while Aky was going to school in Ontario, we moved in together in Montreal in 2010. The rest, as they say, is history. Twelve years is a long time to spend by someone&apos;s side: we&apos;ve been through six apartments, two provinces, two undergrads and a Ph.D., more jobs than Aky can count, sickness, health, and everything in between. So when Andrew proposed by Lake Huron one spring afternoon, Aky said &quot;of course.&quot;</p>
           <p>We were married last year on 17 October, 2021. Because of pandemic restrictions, we had a very small event with only 20 guests in attendance. We can&apos;t wait to celebrate with our extended family and friends as we renew our vows. We will celebrate our marriage with a full ceremony and reception just the way we originally planned.</p>
