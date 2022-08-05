@@ -1,23 +1,49 @@
+import { Button, ButtonGroup } from '@chakra-ui/react';
+
 export const Home: React.FC = () => {
   return (
     <main>
-      <section>
+
+      <header>
+
+        <section className="header-text">
         <div>
           <h1>Aky &amp; Andrew</h1>
           <h2>16 October 2022</h2>
           <h3>Cave Spring | Inn on the Twenty</h3>
         </div>
-        
+
         <div>
+        <Button colorScheme="white" variant="outline">RSVP</Button>
+          </div>
+        </section>
+
+        <div className="hero">
           <img src="http://placekitten.com/1920/1080"></img>
         </div>
-      </section>
+
+      </header>
+
+
 
 
       <section>
         <article className="event">
-          <h4>Event</h4>
-          <p>Event info blah blah Place Time Date</p>
+          <div>
+            <h4>Events</h4>
+            <p className="subtitle">Jordan, Niagara, Ontario</p>
+            <h5>Ceremony</h5>
+            <p className="fancy">Cave Spring Vineyard</p>
+            <p>4:00PM</p>
+            <p>~</p>
+            <h5>Reception</h5>
+            <p className="fancy">Inn on the Twenty</p>
+            <p>5:30PM - 1:00AM</p>
+            <p>Join us for cocktails, dinner, wine, and dancing</p>
+          </div>
+          <div>
+            <img src="http://placekitten.com/500/500"></img>
+          </div>
         </article>  
       </section>
 
