@@ -10,5 +10,6 @@
   },
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "cSpell.words": ["Rideshare"]
 }
