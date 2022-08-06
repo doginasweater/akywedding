@@ -1,20 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link } from '@chakra-ui/react';
 
 export const Header: React.FC = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link as={RouterLink} to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">Home</Link>
+          <Link as={RouterLink} to="/travel">Travel</Link>
         </li>
         <li>
-          <Link to="/rsvp">RSVP</Link>
+          <Link as={RouterLink} to="/registry">Registry</Link>
         </li>
         <li>
-          <Link to="/gallery">Gallery</Link>
+          <Link as={RouterLink} to="/rsvp">RSVP</Link>
         </li>
       </ul>
     </nav>
