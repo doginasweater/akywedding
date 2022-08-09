@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@chakra-ui/react';
+import '../styles/styles.scss';
 
 export const Footer: React.FC = () => {
   return (
-    <span>made with 💖 by <a href="http://github.com/solidquartz" target="blank">solidquartz</a> + <a href="http://github.com/doginasweater" target="blank">doginasweater</a></span>
+    <div className="footer">made with 💖 by <Link href="http://github.com/solidquartz" isExternal>solidquartz</Link> + <Link href="http://github.com/doginasweater" isExternal>doginasweater</Link></div>
   );
 };

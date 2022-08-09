@@ -1,5 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '@chakra-ui/react';
+import '../styles/styles.scss';
 
 export const Header: React.FC = () => {
   return (
@@ -21,5 +22,3 @@ export const Header: React.FC = () => {
     </nav>
   );
 };
-
-// Add anchor links as well for headings on home.tsx
