@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './layout';
 import {
-  Gallery,
   Rsvp,
   Home,
   TestForm,
