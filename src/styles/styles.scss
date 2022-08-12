@@ -1,12 +1,17 @@
 @use "app";
-@use "layout";
+@use "buttons";
 @use "colours";
 @use "fonts";
+@use "header";
+@use "layout";
 @use "mixins";
-@use 'Header';
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  padding-top: 5rem;
 }

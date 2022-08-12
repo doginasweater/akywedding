@@ -13,3 +13,18 @@ export const doHealthCheck = async () => {
     console.error(err);
   }
 };
+
+export type MealOption = {
+  id: number;
+  name: string;
+};
+
+export const getMealOptions = async () => {
+  try {
+    const result = await client.get<MealOption[]>('/rsvp/meals');
+
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+};

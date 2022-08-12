@@ -12,7 +12,7 @@ export type TextAreaProps = ChakraTextareaProps & {
 };
 
 //reusable text input component
-export const TextAreaField: React.FC<TextAreaProps> = ({ label, ...props }) => {
+export const TextArea: React.FC<TextAreaProps> = ({ label, ...props }) => {
   const [ field, meta ] = useField(props.name);
 
   return (
