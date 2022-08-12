@@ -1,0 +1,14 @@
+@import './colours';
+@import './mixins';
+
+.header {
+  position: sticky;
+  top: 0;
+  
+  nav {
+    @include flex-center;
+    justify-content: space-between;
+    height: 5rem;
+    background-color: rgba(147, 114, 133, 0.5);
+  }
+}
