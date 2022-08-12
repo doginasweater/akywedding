@@ -1,14 +1,42 @@
 @import './colours';
 @import './mixins';
+@import './fonts';
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  z-index: 1;
+  width: 100%;
   
   nav {
     @include flex-center;
-    justify-content: space-between;
+    justify-content: center;
     height: 5rem;
-    background-color: rgba(147, 114, 133, 0.5);
+    background-color: rgba(147, 114, 133, 0.7);
+
+    .link-group {
+      list-style: none;
+      padding: 4rem;
+
+      .link-items {
+        a {
+          text-decoration: none;
+          color: $main-text;
+          margin: 0 2rem;
+          font-size: 24px;
+          font-family: $cardo;
+          font-style: italic;
+        }
+      }
+    }
+    .header-title {
+      font-family: $ms-madi;
+      font-style: italic;
+      font-size: 48px;
+    }
+
+    .right {
+      @include flex-center;
+    }
   }
 }
