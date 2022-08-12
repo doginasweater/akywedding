@@ -3,22 +3,22 @@ import {
   FormErrorMessage,
   FormLabel,
 } from '@chakra-ui/form-control';
-import { Textarea as ChakraTextarea, TextareaProps as ChakraTextareaProps } from '@chakra-ui/react';
+import { Input as ChakraInput, InputProps as ChakraInputProps } from '@chakra-ui/input';
 import { useField } from 'formik';
 
-export type TextAreaProps = ChakraTextareaProps & {
+export type TextFieldProps = ChakraInputProps & {
   name: string;
   label?: string;
 };
 
 //reusable text input component
-export const TextAreaField: React.FC<TextAreaProps> = ({ label, ...props }) => {
+export const TextField: React.FC<TextFieldProps> = props => {
   const [ field, meta ] = useField(props.name);
 
   return (
     <FormControl isInvalid={Boolean(meta.touched && meta.error)}>
-      <FormLabel htmlFor={props.name}>{label}</FormLabel>
-      <ChakraTextarea
+      <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
+      <ChakraInput
         {...field}
         {...props}
       />

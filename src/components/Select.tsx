@@ -1,19 +1,24 @@
 import { Select as ChakraSelect, SelectProps as ChakraSelectProps } from '@chakra-ui/react';
 import { useField } from 'formik';
+import {
+  FormControl,
+  FormErrorMessage
+} from '@chakra-ui/form-control';
 
 export type SelectProps = ChakraSelectProps & {
   name: string;
 };
 
 export const Select: React.FC<SelectProps> = props => {
-  const [ field ] = useField(props.name);
+  const [ field, meta ] = useField(props.name);
 
   return (
-    <ChakraSelect
-      {...field}
-      {...props}
-    />
+    <FormControl isInvalid={Boolean(meta.touched && meta.error)}>
+      <ChakraSelect
+        {...field}
+        {...props}
+        />
+      <FormErrorMessage>{meta.error}</FormErrorMessage>
+    </FormControl>
   );
 };
-
-//use error messages/maybe validation with yup
