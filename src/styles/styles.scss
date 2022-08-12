@@ -3,3 +3,10 @@
 @use "colours";
 @use "fonts";
 @use "mixins";
+@use 'Header';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
