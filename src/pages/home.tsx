@@ -1,5 +1,72 @@
+import {
+  Button,
+} from '@chakra-ui/react';
+
+
+
 export const Home: React.FC = () => {
   return (
-    <h1>Home</h1>
+    <main>
+
+      <header>
+
+        <section className="header-text">
+        <div>
+          <h1>Aky &amp; Andrew</h1>
+          <h2>16 October 2022</h2>
+          <h3>Cave Spring | Inn on the Twenty</h3>
+        </div>
+
+        <div>
+          <Button colorScheme="whiteAlpha" variant="outline">RSVP</Button>
+        </div>
+        </section>
+
+        <div className="hero">
+          <img src="src/images/_DSC7364_websize.jpg"></img>
+        </div>
+
+      </header>
+
+
+
+
+      <section>
+        <article className="event" id="event">
+          <div>
+            <h4>Events</h4>
+            <p className="subtitle">Jordan, Niagara, Ontario</p>
+            <h5>Ceremony</h5>
+            <p className="fancy">Cave Spring Vineyard</p>
+            <p>4:00PM</p>
+            <p>~</p>
+            <h5>Reception</h5>
+            <p className="fancy">Inn on the Twenty</p>
+            <p>5:30PM - 1:00AM</p>
+            <p>Join us for cocktails, dinner, wine, and dancing</p>
+          </div>
+          
+        </article>  
+      </section>
+
+
+
+      <section>
+        <article className="story" id="story">
+          <h4>Our Story</h4>
+          <p>Aky and Andrew met in 2009 in a tiny little town called Trois-Pistoles on a French programme. Getting to know each other was pretty lost in translation, but Andrew overcame his clunky French and flip phone that kept deleting contact info, and Aky decided to take a chance. We spent that summer emailing each other while Andrew backpacked around Europe, and after a year of dating long distance while Aky was going to school in Ontario, we moved in together in Montreal in 2010. The rest, as they say, is history. Twelve years is a long time to spend by someone&apos;s side: we&apos;ve been through six apartments, two provinces, two undergrads and a Ph.D., more jobs than Aky can count, sickness, health, and everything in between. So when Andrew proposed by Lake Huron one spring afternoon, Aky said &quot;of course.&quot;</p>
+          <p>We were married last year on 17 October, 2021. Because of pandemic restrictions, we had a very small event with just over 20 guests in attendance. We can&apos;t wait to celebrate with our extended family and friends as we renew our vows. We will celebrate our marriage with a full ceremony and reception just the way we originally planned.</p>
+          <p>Andrew Komar is from Calgary, Alberta. He&apos;s a civil engineer and Concrete Doctor who is really good at taking pictures of the cats. He likes Star Trek, being at the cottage, and reading science books.</p>
+          <p>Aky Mac Donald is from Cape Breton Island, Nova Scotia. She&apos;s a Web Developer, ex-English teacher, and Japanese translator who puts a lot of videos of herself playing video games on the internet. She likes Final Fantasy, bubble tea, and being an incorrigible polyglot.</p>
+          <p>We like to camp, go out for ramen, play video games together, and hang out with our two cats, Mister Spock and Tali&apos;Zorah vas Dundas. We presently live in Toronto.</p>
+        </article>  
+
+        <div>
+            <img src="http://placekitten.com/500/500"></img>
+        </div>
+        
+      </section>
+
+    </main>
   );
 };

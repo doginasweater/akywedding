@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './layout';
 import {
-  Gallery,
   Rsvp,
   Home,
-  TestForm
+  TestForm,
+  Travel,
+  Registry
 } from './pages';
 
 
@@ -13,7 +14,8 @@ export const App: React.FC = () => (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/travel" element={<Travel />} />
+        <Route path="/registry" element={<Registry />} />
         <Route path="/rsvp" element={<Rsvp />} />
         <Route path="/testform" element={<TestForm />} />
       </Route>
