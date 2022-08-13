@@ -1,0 +1,40 @@
+@use "./colours";
+@use "./fonts";
+
+.registry-image {
+  background: url("../images/pema-lama-6cfK0SEtpbY-unsplash.jpg") no-repeat;
+  height: 50vh;
+  background-size: cover;
+  background-position: 50%;
+
+
+}
+.registry {
+  padding-top: 1rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: colours.$amnesia-rose;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-family: fonts.$ms-madi;
+    padding-bottom: 1rem;
+  }
+
+
+  p {
+    font-family: fonts.$cardo;
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+  }
+}
