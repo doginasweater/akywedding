@@ -12,7 +12,7 @@
     @include mixins.flex-center;
     justify-content: center;
     height: 5rem;
-    background-color: rgba(147, 114, 133, 0.7);
+    background-color: rgba(147, 114, 133, 0.8);
 
     .link-group {
       list-style: none;
@@ -33,7 +33,7 @@
     .header-title {
       font-family: fonts.$ms-madi;
       font-style: italic;
-      font-size: 48px;
+      font-size: 36px;
     }
 
     .right {
