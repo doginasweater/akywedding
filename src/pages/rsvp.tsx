@@ -34,7 +34,7 @@ export const Rsvp: React.FC = () => {
   const initialValues: RsvpFormType = {
     music: '',
     comments: '',
-    guests: [{
+    guests: [ {
       id: '1',
       isChild: false,
       firstName: 'Bruce',
@@ -50,7 +50,7 @@ export const Rsvp: React.FC = () => {
       attending: '',
       foodChoice: '',
       dietaryRestrictions: '',
-    }],
+    } ],
   };
 
   const handleSubmit = useCallback((values: RsvpFormType) => {
