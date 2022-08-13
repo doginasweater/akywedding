@@ -13,12 +13,15 @@ export const Home: React.FC = () => {
 
         <div className="header-text">
           <h1>Aky &amp; Andrew</h1>
+          <div className="details">
           <h2>16 October 2022</h2>
-          <h3>Cave Spring | Inn on the Twenty</h3>
+            <h3>Cave Spring | Inn on the Twenty</h3>
+          
 
             <RouterLink to="/rsvp-search">
-              <Button colorScheme="whiteAlpha" variant="outline">RSVP</Button>
-              </RouterLink>
+              <Button colorScheme="blackAlpha" size="lg">RSVP</Button>
+            </RouterLink>
+              </div>
         </div>
 
       </section>

@@ -1,7 +1,36 @@
+@use './colours';
+@use './fonts';
+
 .main-section {
   background: url("../images/_DSC7364_websize.jpg") no-repeat;
   height: 80vh;
   background-size: cover;
   background-position: 50%;
-  
+  overflow: hidden;
+
+  .header-text {
+    margin: 8rem;
+    text-align: center;
+
+    h1 {
+      font-size: 8rem;
+      font-family: fonts.$ms-madi;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .details {
+      margin: 12rem;
+      font-family: fonts.$lateef;
+
+      h2 {
+        font-size: 3rem;
+
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+    }
+  }
+
 }
