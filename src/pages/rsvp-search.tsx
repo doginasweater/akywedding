@@ -1,7 +1,17 @@
-import { Input } from '@chakra-ui/react';
+import { Input, Button } from '@chakra-ui/react';
 
 export const RsvpSearch: React.FC = () => {
-    return (
-        <Input placeholder="Enter your name" />
-    );
+  return (
+    <div className="form-container">
+      <div className="form-wrapper">
+        <form className="form">
+
+        <div className="input-group">
+          <Input type="text" placeholder="Enter your name" className="form" />
+          </div>
+          <Button colorScheme="blackAlpha" size="md">CONFIRM</Button>
+        </form>
+      </div>
+    </div>
+  );
 };
