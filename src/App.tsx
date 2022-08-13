@@ -4,7 +4,8 @@ import {
   Rsvp,
   Home,
   Travel,
-  Registry
+  Registry,
+  RsvpSearch
 } from './pages';
 
 
@@ -15,6 +16,7 @@ export const App: React.FC = () => (
         <Route index element={<Home />} />
         <Route path="/travel" element={<Travel />} />
         <Route path="/registry" element={<Registry />} />
+        <Route path="/rsvp-search" element={<RsvpSearch />} />
         <Route path="/rsvp" element={<Rsvp />} />
       </Route>
     </Routes>

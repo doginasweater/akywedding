@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
           <ul className="link-group">
             <li className="link-items">
             <Link to="/registry">Registry</Link>
-            <Link to="/rsvp">RSVP</Link>
+            <Link to="/rsvp-search">RSVP</Link>
             </li>
 
           </ul>

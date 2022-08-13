@@ -1,6 +1,7 @@
 import {
   Button,
 } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
 
 
 
@@ -8,25 +9,19 @@ export const Home: React.FC = () => {
   return (
     <main>
 
-      <header>
+      <section className="main-section">
 
-        <section className="header-text">
-        <div>
+        <div className="header-text">
           <h1>Aky &amp; Andrew</h1>
           <h2>16 October 2022</h2>
           <h3>Cave Spring | Inn on the Twenty</h3>
+
+            <RouterLink to="/rsvp-search">
+              <Button colorScheme="whiteAlpha" variant="outline">RSVP</Button>
+              </RouterLink>
         </div>
 
-        <div>
-          <Button colorScheme="whiteAlpha" variant="outline">RSVP</Button>
-        </div>
-        </section>
-
-        <div className="hero">
-          <img src="src/images/_DSC7364_websize.jpg"></img>
-        </div>
-
-      </header>
+      </section>
 
 
 
