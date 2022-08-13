@@ -1,43 +1,95 @@
-@use "./fonts";    
-    
-    .form-container {
-      background: url("../images/reception-dinner.jpg");
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      
-      .form-wrapper {
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+@use "./fonts";
 
-      .form {
-        position: relative;
-        width: 100%;
-        max-width: 380px;
-        padding: 20px 30px 30px;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        border: 0;
-        color: #fff;
-        font-family: fonts.$raleway;
-        font-weight: 600;
-      }
+.form-container {
+  background: url("../images/reception-dinner.jpg");
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 
-      .form .input-group {
-        position: relative;
-        width: 100%;
-        padding: 10px 0;
-        font-size: 1rem;
-        letter-spacing: 1px;
-        margin-bottom: 30px;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        color: inherit;
-      }
-    }
+  .form-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 20px 30px 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 0;
+    color: #fff;
+    font-family: fonts.$raleway;
+    font-weight: 600;
+  }
+
+  .form .input-group {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+
+
+.rsvp-full-form-container {
+  background: url("../images/bouquet.jpg");
+  background-position: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  .rsvp-full-form-wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rsvp-full-form {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px 30px 30px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    border: 0;
+    color: #fff;
+    font-family: fonts.$raleway;
+    font-weight: 600;
+    font-style: bold;
+  }
+
+  .input-group {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-family: fonts.$cardo;
+    padding: 1rem;
+  }
+}

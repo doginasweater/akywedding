@@ -34,7 +34,7 @@ export const Rsvp: React.FC = () => {
   const initialValues: RsvpFormType = {
     music: '',
     comments: '',
-    guests: [ {
+    guests: [{
       id: '1',
       isChild: false,
       firstName: 'Bruce',
@@ -50,7 +50,7 @@ export const Rsvp: React.FC = () => {
       attending: '',
       foodChoice: '',
       dietaryRestrictions: '',
-    } ],
+    }],
   };
 
   const handleSubmit = useCallback((values: RsvpFormType) => {
@@ -58,56 +58,63 @@ export const Rsvp: React.FC = () => {
   }, []);
 
   return (
-    <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        {({ values }) => (
-        <Form>
-          <p>
-            Almighty Party, 2 guests
-          </p>
-          <FieldArray name="guests">
-            {() => values.guests.map((guest, index) => (
-              <div style={{ border: '1px solid #ececec' }} key={guest.id}>
-                <h3>{values.guests[index].firstName} {values.guests[index].lastName}</h3>
+    <div className="rsvp-full-form-container">
+      <div className="rsvp-full-form-wrapper">
+        <div className="rsvp-full-form">
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          {({ values }) => (
+            <Form>
 
-                <Select name={`guests.${index}.attending`} placeholder="Will you be joining us?">
-                  <option value="false">No</option>
-                  <option value="true">Yes</option>
-                </Select>
+                <div className="input-group">
+              <FieldArray name="guests">
+                {() => values.guests.map((guest, index) => (
+                  <div style={{ border: '0px solid #ececec' }} key={guest.id}>
+                    <h3>{values.guests[index].firstName} {values.guests[index].lastName}</h3>
 
-                <Select name={`guests.${index}.foodChoice`} placeholder="Meal Selection" isDisabled={values.guests[index].attending === 'false'}>
-                  {mealOptions?.map((opt) => (
-                    <option value={opt.name} key={opt.id}>
-                      {opt.name}
-                    </option>
-                  ))}
-                </Select>
+                    
+                    <Select name={`guests.${index}.attending`} placeholder="Will you be joining us?">
+                      <option value="false">No</option>
+                      <option value="true">Yes</option>
+                    </Select>
+                   
 
-                <TextField
-                  name={`guests.${index}.dietaryRestrictions`}
-                  placeholder="Dietary Restrictions/Allergies?"
-                  isDisabled={values.guests[index].attending === 'false'}
-                />
-              </div>
-            ))}
-          </FieldArray>
 
-          <TextArea
-            name="music"
-            placeholder="Request some music if you like."
-            isDisabled={values.guests.every(x => x.attending === 'false')}
-          />
+                    <Select name={`guests.${index}.foodChoice`} placeholder="Meal Selection" isDisabled={values.guests[index].attending === 'false'}>
+                      {mealOptions?.map((opt) => (
+                        <option value={opt.name} key={opt.id}>
+                          {opt.name}
+                        </option>
+                      ))}
+                    </Select>
+               
 
-          <TextArea
-            name="comments"
-            placeholder="Comments? Notes? Existential questions?"
-          />
+                    <TextField
+                      name={`guests.${index}.dietaryRestrictions`}
+                      placeholder="Dietary Restrictions/Allergies?"
+                      isDisabled={values.guests[index].attending === 'false'}
+                    />
+                  </div>
+                ))}
+              </FieldArray>
+                  <h3>-</h3>
+              <TextArea
+                name="music"
+                placeholder="Request some music if you like (optional)"
+                isDisabled={values.guests.every(x => x.attending === 'false')}
+              />
 
-          <Button type="submit">Submit RSVP</Button>
-        </Form>
-  )}
-      </Formik>
-      <p>{resultText}</p>
-    </>
+              <TextArea
+                name="comments"
+                placeholder="Comments/Notes (optional)"
+              />
+                </div>
+              <Button type="submit" colorScheme="whiteAlpha" size="md">SUBMIT RSVP</Button>
+            </Form>
+          )}
+        </Formik>
+          <p>{resultText}</p>
+        </div>
+      </div>
+    </div>
   );
 };
