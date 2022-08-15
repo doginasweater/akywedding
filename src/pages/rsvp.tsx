@@ -6,7 +6,7 @@ import { Party } from '../types';
 
 
 export const Rsvp: React.FC = () => {
-  const [party, setParty] = useState<Party>();
+  const [ party, setParty ] = useState<Party>();
 
   const handleFindParty = useCallback((party: Party) => {
     setParty(party);

@@ -20,7 +20,7 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
     if (result?.data) {
       onFound(result.data);
     }
-  }, [onFound]);
+  }, [ onFound ]);
 
   const initialValues: RsvpSearchType = {
     name: ''

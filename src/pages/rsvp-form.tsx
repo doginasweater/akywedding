@@ -1,10 +1,10 @@
 import { Button } from '@chakra-ui/react';
 import { FieldArray, Form, Formik } from 'formik';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useQuery } from 'react-query';
 import { getMealOptions } from '../api';
 import { Select, TextField, TextArea } from '../components';
-import { Guest, MealOption, Party } from '../types';
+import { Guest, Party } from '../types';
 
 export type RsvpFormProps = {
   party: Party;
@@ -17,8 +17,7 @@ export type RsvpFormType = {
 };
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
-  const [mealOptions, setMeals] = useState<MealOption[]>();
-  const { data, isLoading } = useQuery(
+  const { data: mealOptions, isLoading } = useQuery(
     ['get-meals'],
     () => getMealOptions()
   );
@@ -30,23 +29,14 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   const initialValues: RsvpFormType = {
     music: '',
     comments: '',
-    guests: [{
-      id: '1',
-      isChild: false,
-      firstName: 'Bruce',
-      lastName: 'Almighty',
+    guests: party.guests.map(p => ({
+      id: p.id,
+      isChild: p.isChild,
+      name: p.name,
       attending: '',
       foodChoice: '',
-      dietaryRestrictions: '',
-    }, {
-      id: '2',
-      isChild: true,
-      firstName: 'Kyle',
-      lastName: 'Almighty',
-      attending: '',
-      foodChoice: '',
-      dietaryRestrictions: '',
-    }],
+      dietaryRestrictions: ''
+    })),
   };
 
   if (isLoading) {
@@ -67,7 +57,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
                   <FieldArray name="guests">
                     {() => values.guests.map((guest, index) => (
                       <div style={{ border: '0px solid #ececec' }} key={guest.id}>
-                        <h3>{values.guests[index].firstName} {values.guests[index].lastName}</h3>
+                        <h3>{values.guests[index].name}</h3>
 
 
                         <Select name={`guests.${index}.attending`} placeholder="Will you be joining us?">
@@ -76,7 +66,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
                         </Select>
 
                         <Select name={`guests.${index}.foodChoice`} placeholder="Meal Selection" isDisabled={values.guests[index].attending === 'false'}>
-                          {mealOptions?.map((opt) => (
+                          {mealOptions?.data.map((opt) => (
                             <option value={opt.name} key={opt.id}>
                               {opt.name}
                             </option>
