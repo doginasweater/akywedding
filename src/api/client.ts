@@ -3,6 +3,9 @@ import { MealOption, Party } from '../types';
 
 const client = axios.create({
   baseURL: import.meta.env.AKY_API_URL,
+  headers: {
+    'Content-Type': 'application/json'
+  }
 });
 
 export const doHealthCheck = async () => {
@@ -28,7 +31,7 @@ export const getMealOptions = async () => {
 
 export const findParty = async (search: string) => {
   try {
-    const result = await client.post<Party[]>('/rsvp/findParty', { name: search });
+    const result = await client.post<Party>(`/rsvp/findParty?name=${search}`);
     return result;
   } catch (err) {
     console.error(err);
