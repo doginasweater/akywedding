@@ -20,11 +20,11 @@
     width: 100%;
     max-width: 380px;
     padding: 20px 30px 30px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     border: 0;
     color: #fff;
-    font-family: fonts.$raleway;
+    font-family: fonts.$cardo;
     font-weight: 600;
   }
 
@@ -40,8 +40,11 @@
     background-color: transparent;
     color: inherit;
   }
-}
 
+  ::placeholder {
+    color: whitesmoke;
+  }
+}
 
 
 .rsvp-full-form-container {
@@ -51,6 +54,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  padding-top: 3rem;
 
   .rsvp-full-form-wrapper {
     height: 100vh;
@@ -65,7 +69,7 @@
     width: 100%;
     max-width: 500px;
     padding: 20px 30px 30px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     border: 0;
     color: #fff;
@@ -84,7 +88,11 @@
     border: none;
     outline: none;
     background-color: transparent;
-    color: inherit;
+    gap: 1rem;
+  }
+
+  ::placeholder {
+    color: whitesmoke;
   }
 
   h3 {
