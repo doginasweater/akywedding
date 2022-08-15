@@ -1,8 +1,7 @@
 export type Guest = {
   id: string;
   isChild: boolean;
-  firstName: string;
-  lastName: string;
+  name: string;
   attending: string;
   foodChoice: string;
   dietaryRestrictions: string;
