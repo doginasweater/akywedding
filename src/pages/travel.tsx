@@ -39,7 +39,7 @@ export const Travel = () => {
             <li><Link href="https://www.choicehotels.com/en-ca/ontario/st-catharines/comfort-inn-hotels/cn303" isExternal color="grey.500">Comfort Inn St. Catharines</Link></li>
           </ul>
         
-        <h2>Other Accommodations</h2>
+        <h3>Other Accommodations</h3>
           <p><Link href="https://www.airbnb.ca/s/Jordan--Lincoln--ON--Canada/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&place_id=ChIJCdXisahS04kRksOJhprJPuw&date_picker_type=calendar&checkin=2022-10-16&checkout=2022-10-17&source=structured_search_input_header&search_type=autocomplete_click" isExternal color="grey.500">Airbnb</Link> is another option, especially for large groups or if you plan to spend extra time enjoying the Niagara region. Search for "Jordan, Lincoln, ON" (or click the link—I've done it for you!)</p>
 
 
