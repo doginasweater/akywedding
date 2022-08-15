@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { findParty } from '../api';
 import { Formik, Form } from 'formik';
 import { TextField } from '../components';
@@ -20,7 +20,7 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
     if (result?.data) {
       onFound(result.data);
     }
-  }, [ onFound ]);
+  }, [onFound]);
 
   const initialValues: RsvpSearchType = {
     name: ''
