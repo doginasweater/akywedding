@@ -7,27 +7,20 @@ import { Link as RouterLink } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   return (
-    <main>
+    <div className="home">
 
       <section className="main-section">
-
         <div className="header-text">
           <h1>Aky &amp; Andrew</h1>
-          <div className="details">
-            <h2>16 October 2022</h2>
-            <h3>Cave Spring | Inn on the Twenty</h3>
-
-
-            <RouterLink to="/rsvp-search">
-              <Button colorScheme="blackAlpha" size="lg">RSVP</Button>
-            </RouterLink>
-          </div>
         </div>
-
+        <div className="details">
+          <h2>16 October 2022</h2>
+          <h3>Cave Spring | Inn on the Twenty</h3>
+          <RouterLink to="/rsvp">
+            <Button colorScheme="blackAlpha" size="lg">RSVP</Button>
+          </RouterLink>
+        </div>
       </section>
-
-
-
 
       <section>
         <article className="event">
@@ -63,6 +56,6 @@ export const Home: React.FC = () => {
 
       </section>
 
-    </main>
+    </div>
   );
 };

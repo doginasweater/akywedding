@@ -2,17 +2,20 @@
 @use './fonts';
 @use './mixins';
 
+$header-height: 5rem;
+
 .header {
   position: fixed;
   top: 0;
   z-index: 1;
   width: 100%;
+  height: $header-height;
 
   nav {
     @include mixins.flex-center;
     justify-content: center;
-    height: 5rem;
-    background-color: rgba(147, 114, 133, 0.8);
+    background-color: rgba(147, 114, 133);
+    height: 100%;
 
     .link-group {
       list-style: none;

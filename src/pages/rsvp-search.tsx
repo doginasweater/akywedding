@@ -36,9 +36,10 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
             <Form>
 
               <div className="input-group">
+                Please enter the full name of one guest as it appears on your invitation
                 <TextField
                   name="name"
-                  placeholder="Enter your full name"
+                  
                 />
               </div>
 

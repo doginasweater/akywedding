@@ -6,6 +6,10 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  overflow: hidden;
 
   .form-wrapper {
     height: 100vh;
@@ -50,14 +54,19 @@
 .rsvp-full-form-container {
   background: url("../images/bouquet.jpg");
   background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   padding-top: 3rem;
+  overflow: hidden;
+  padding-bottom: 2rem;
 
   .rsvp-full-form-wrapper {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
