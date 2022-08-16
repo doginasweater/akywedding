@@ -1,43 +1,44 @@
 @use './colours';
 @use './fonts';
 
-main {
-  
+.home {
   .main-section {
     background: url("../images/_DSC7364_websize.jpg") no-repeat;
-    height: 80vh;
     background-size: cover;
     background-position: 50%;
+
+    height: 80vh;
     overflow: hidden;
 
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+
     .header-text {
-      margin: 8rem;
       text-align: center;
 
       h1 {
         font-size: 8rem;
         font-family: fonts.$ms-madi;
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    .details {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      box-shadow: 15px rgba(0, 0, 0, 0.1);
+      color: rgba(255, 255, 255, 0.9);
+      font-family: fonts.$lateef;
+      padding: 10px 25px;
+      text-align: center;
+
+      h2 {
+        font-size: 2.5rem;
       }
 
-      .details {
-        margin: 12rem;
-        font-family: fonts.$lateef;
-        color: rgba(255, 255, 255, 0.9);
-        padding: 10px 15px 15px;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        color: #fff;
-        box-shadow: 15px rgba(0, 0, 0, 0.1);
-
-        h2 {
-          font-size: 2.5rem;
-
-        }
-
-        h3 {
-          font-size: 1.5rem;
-        }
+      h3 {
+        font-size: 1.5rem;
       }
     }
   }

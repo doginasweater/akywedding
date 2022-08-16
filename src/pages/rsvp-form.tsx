@@ -24,6 +24,14 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
 
   const handleSubmit = useCallback((values: RsvpFormType) => {
     console.log(values);
+    //post
+    /*
+      1. make new function in client.ts that takes in data to send
+      2. in handleSubmit, change the data from the object formik is giving you into what the db requires 
+      3. call new post function
+      4. check result
+      5. kick to thank you page OR show server errors
+    */
   }, []);
 
   const initialValues: RsvpFormType = {
