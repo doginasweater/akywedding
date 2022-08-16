@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import { getMealOptions } from '../api';
 import { Select, TextField, TextArea } from '../components';
 import { Guest, Party } from '../types';
+import * as Yup from 'yup';
 
 export type RsvpFormProps = {
   party: Party;
@@ -18,7 +19,7 @@ export type RsvpFormType = {
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   const { data: mealOptions, isLoading } = useQuery(
-    [ 'get-meals' ],
+    ['get-meals'],
     () => getMealOptions()
   );
 
@@ -57,7 +58,13 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
         <div className="rsvp-full-form">
           <Formik
             initialValues={initialValues}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            validationSchema={Yup.object({
+              attending: Yup.string()
+                .required('Please select an option'),
+              foodChoice: Yup.string()
+                .required('Please select an option')
+            })}>
             {({ values }) => (
               <Form>
 
