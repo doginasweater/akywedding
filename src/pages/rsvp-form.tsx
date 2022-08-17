@@ -6,9 +6,13 @@ import { getMealOptions } from '../api';
 import { Select, TextField, TextArea } from '../components';
 import { Guest, Party } from '../types';
 import * as Yup from 'yup';
+import { Link as RouterLink } from 'react-router-dom';
+
+
 
 export type RsvpFormProps = {
   party: Party;
+  // setParty: setParty;
 };
 
 export type RsvpFormType = {
@@ -19,7 +23,7 @@ export type RsvpFormType = {
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   const { data: mealOptions, isLoading } = useQuery(
-    ['get-meals'],
+    [ 'get-meals' ],
     () => getMealOptions()
   );
 
@@ -55,7 +59,9 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   return (
     <div className="rsvp-full-form-container">
       <div className="rsvp-full-form-wrapper">
+
         <div className="rsvp-full-form">
+          <RouterLink to="/rsvp"><p>Not your party? Click here to try searching again with your full name.</p></RouterLink>
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
@@ -121,3 +127,4 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
 
 
 };
+
