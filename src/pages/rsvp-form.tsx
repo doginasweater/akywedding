@@ -6,7 +6,6 @@ import { getMealOptions } from '../api';
 import { Select, TextField, TextArea } from '../components';
 import { Guest, Party } from '../types';
 import * as Yup from 'yup';
-import { Link as RouterLink } from 'react-router-dom';
 
 
 
@@ -19,6 +18,10 @@ export type RsvpFormType = {
   music: string;
   comments: string;
   guests: Guest[];
+};
+
+const refreshPage = () => {
+  window.location.reload();
 };
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
@@ -61,7 +64,8 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
       <div className="rsvp-full-form-wrapper">
 
         <div className="rsvp-full-form">
-          <RouterLink to="/rsvp"><p>Not your party? Click here to try searching again with your full name.</p></RouterLink>
+          <p>Not your party? </p>
+          <p>Click <Button variant="link" onClick={refreshPage}>here</Button> to try searching again with your full name.</p>
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
