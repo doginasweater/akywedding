@@ -5,6 +5,7 @@ import {
   Home,
   Travel,
   Registry,
+  Confirmation
 } from './pages';
 
 export const App: React.FC = () => (
@@ -15,6 +16,7 @@ export const App: React.FC = () => (
         <Route path="/travel" element={<Travel />} />
         <Route path="/registry" element={<Registry />} />
         <Route path="/rsvp" element={<Rsvp />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Route>
     </Routes>
   </Router>

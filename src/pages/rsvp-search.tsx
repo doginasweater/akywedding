@@ -4,6 +4,7 @@ import { findParty } from '../api';
 import { Formik, Form } from 'formik';
 import { TextField } from '../components';
 import { Party } from '../types';
+import * as Yup from 'yup';
 
 export type RsvpSearchProps = {
   onFound: (party: Party) => void;
@@ -20,7 +21,7 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
     if (result?.data) {
       onFound(result.data);
     }
-  }, [onFound]);
+  }, [ onFound ]);
 
   const initialValues: RsvpSearchType = {
     name: ''
@@ -32,7 +33,12 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
         <div className="form">
           <Formik
             initialValues={initialValues}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            validationSchema={Yup.object({
+              name: Yup.string()
+                .required('Please enter your name')
+            })}>
+            
             <Form>
 
               <div className="input-group">

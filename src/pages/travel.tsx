@@ -3,7 +3,7 @@ import {
 } from '@chakra-ui/react';
 
 
-export const Travel = () => {
+export const Travel: React.FC = () => {
   return (
 
 

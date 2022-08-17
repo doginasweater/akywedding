@@ -5,9 +5,14 @@ import { useQuery } from 'react-query';
 import { getMealOptions } from '../api';
 import { Select, TextField, TextArea } from '../components';
 import { Guest, Party } from '../types';
+import * as Yup from 'yup';
+import { Link as RouterLink } from 'react-router-dom';
+
+
 
 export type RsvpFormProps = {
   party: Party;
+  // setParty: setParty;
 };
 
 export type RsvpFormType = {
@@ -54,10 +59,18 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   return (
     <div className="rsvp-full-form-container">
       <div className="rsvp-full-form-wrapper">
+
         <div className="rsvp-full-form">
+          <RouterLink to="/rsvp"><p>Not your party? Click here to try searching again with your full name.</p></RouterLink>
           <Formik
             initialValues={initialValues}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            validationSchema={Yup.object({
+              attending: Yup.string()
+                .required('Please select an option'),
+              foodChoice: Yup.string()
+                .required('Please select an option')
+            })}>
             {({ values }) => (
               <Form>
 
@@ -114,3 +127,4 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
 
 
 };
+
