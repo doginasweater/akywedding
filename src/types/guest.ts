@@ -1,8 +1,8 @@
 export type Guest = {
-  id: string;
-  isChild: boolean;
+  guest_id: string;
+  is_child: boolean;
   name: string;
-  attending: string;
-  foodChoice: string;
-  dietaryRestrictions: string;
+  is_attending: string;
+  meal_id: string;
+  dietary_restrictions: string;
 };
