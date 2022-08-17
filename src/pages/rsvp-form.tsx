@@ -26,7 +26,7 @@ const refreshPage = () => {
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   const { data: mealOptions, isLoading } = useQuery(
-    ['get-meals'] ,
+    [ 'get-meals' ] ,
     () => getMealOptions()
   );
 
