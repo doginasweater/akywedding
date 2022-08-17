@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { MealOption, Party } from '../types';
+import { MealOption, Party, Rsvp } from '../types';
 
 const client = axios.create({
   baseURL: import.meta.env.AKY_API_URL,
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  withCredentials: false
 });
 
 export const doHealthCheck = async () => {
@@ -38,5 +39,15 @@ export const findParty = async (search: string) => {
   }
 };
 
+
+
 //submit will be similar to findParty (first arg url second arg search)
 //takes in an rsvp view model to send to the server 
+export const submitParty = async (values: Rsvp) => {
+  try {
+    const result = await client.post('/rsvp/submit', values);
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+};

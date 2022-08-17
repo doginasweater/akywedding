@@ -2,10 +2,11 @@ import { Button } from '@chakra-ui/react';
 import { FieldArray, Form, Formik } from 'formik';
 import React, { useCallback } from 'react';
 import { useQuery } from 'react-query';
-import { getMealOptions } from '../api';
+import { getMealOptions, submitParty } from '../api';
 import { Select, TextField, TextArea } from '../components';
-import { Guest, Party } from '../types';
+import { Guest, Party, Rsvp } from '../types';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -26,32 +27,53 @@ const refreshPage = () => {
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   const { data: mealOptions, isLoading } = useQuery(
-    [ 'get-meals' ],
+    ['get-meals'],
     () => getMealOptions()
   );
 
-  const handleSubmit = useCallback((values: RsvpFormType) => {
-    console.log(values);
-    //post
+  const handleSubmit = useCallback(async (values: RsvpFormType) => {
+    const submission: Rsvp = {
+      partyId: party.partyId,
+      music: values.music,
+      comments: values.comments,
+      guests: values.guests.map(guest => {
+        return {
+          guest_id: Number(guest.guest_id),
+          name: guest.name,
+          is_attending: (guest.is_attending === 'true'),
+          meal_id: Number(guest.meal_id),
+          dietary_restrictions: guest.dietary_restrictions,
+          is_child: guest.is_child,
+        };
+      })
+    };
+
+    const result = await submitParty(submission);
+    
+    console.log('result', result);
+    // post
     /*
-      1. make new function in client.ts that takes in data to send
       2. in handleSubmit, change the data from the object formik is giving you into what the db requires 
       3. call new post function
       4. check result
       5. kick to thank you page OR show server errors
+
+      if (!200) {error}
+    const navigate = useNavigate();
     */
-  }, []);
+  }, [party.partyId]);
+
 
   const initialValues: RsvpFormType = {
     music: '',
     comments: '',
     guests: party.guests.map(p => ({
-      id: p.id,
-      isChild: p.isChild,
+      guest_id: p.guest_id,
+      is_child: p.is_child,
       name: p.name,
-      attending: '',
-      foodChoice: '',
-      dietaryRestrictions: ''
+      is_attending: '',
+      meal_id: '',
+      dietary_restrictions: ''
     })),
   };
 
@@ -70,38 +92,47 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
             initialValues={initialValues}
             onSubmit={handleSubmit}
             validationSchema={Yup.object({
-              attending: Yup.string()
-                .required('Please select an option'),
-              foodChoice: Yup.string()
-                .required('Please select an option')
-            })}>
-            {({ values }) => (
+              guests: Yup.array().of(
+                Yup.object({
+                  is_attending: Yup.string()
+                    .required('Please select an option'),
+                  meal_id: Yup.string()
+                    .required('Please select an option')
+                })
+              )
+            })}
+          >
+            {({ values, errors }) => (
               <Form>
-
+                {errors && (
+                  <div>
+                    {JSON.stringify(errors)}
+                  </div>
+                )}
                 <div className="input-group">
                   <FieldArray name="guests">
                     {() => values.guests.map((guest, index) => (
-                      <div style={{ border: '0px solid #ececec' }} key={guest.id}>
+                      <div style={{ border: '0px solid #ececec' }} key={`guest-${guest.guest_id}`}>
                         <h3>{values.guests[index].name}</h3>
 
 
-                        <Select name={`guests.${index}.attending`} placeholder="Will you be joining us?">
+                        <Select name={`guests.${index}.is_attending`} placeholder="Will you be joining us?">
                           <option value="false">No</option>
                           <option value="true">Yes</option>
                         </Select>
 
-                        <Select name={`guests.${index}.foodChoice`} placeholder="Meal Selection" isDisabled={values.guests[index].attending === 'false'}>
+                        <Select name={`guests.${index}.meal_id`} placeholder="Meal Selection" isDisabled={values.guests[index].is_attending === 'false'}>
                           {mealOptions?.data.map((opt) => (
-                            <option value={opt.name} key={opt.id}>
+                            <option value={opt.meal_id} key={`option-${opt.meal_id}`}>
                               {opt.name}
                             </option>
                           ))}
                         </Select>
 
                         <TextField
-                          name={`guests.${index}.dietaryRestrictions`}
+                          name={`guests.${index}.dietary_restrictions`}
                           placeholder="Dietary Restrictions/Allergies?"
-                          isDisabled={values.guests[index].attending === 'false'}
+                          isDisabled={values.guests[index].is_attending === 'false'}
                         />
                       </div>
                     ))}
@@ -112,7 +143,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
                   <TextArea
                     name="music"
                     placeholder="Request some music if you like (optional)"
-                    isDisabled={values.guests.every(x => x.attending === 'false')}
+                    isDisabled={values.guests.every(x => x.is_attending === 'false')}
                   />
 
                   <TextArea

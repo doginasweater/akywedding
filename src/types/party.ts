@@ -1,6 +1,6 @@
 import { Guest } from './guest';
 
 export type Party = {
-  id: number;
+  partyId: number;
   guests: Guest[];
 };

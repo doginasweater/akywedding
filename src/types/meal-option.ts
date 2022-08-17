@@ -1,4 +1,4 @@
 export type MealOption = {
-  id: number;
+  meal_id: number;
   name: string;
 };
