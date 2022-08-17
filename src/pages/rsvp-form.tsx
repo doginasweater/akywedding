@@ -104,11 +104,6 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
           >
             {({ values, errors }) => (
               <Form>
-                {errors && (
-                  <div>
-                    {JSON.stringify(errors)}
-                  </div>
-                )}
                 <div className="input-group">
                   <FieldArray name="guests">
                     {() => values.guests.map((guest, index) => (
