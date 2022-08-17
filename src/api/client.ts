@@ -3,10 +3,6 @@ import { MealOption, Party, Rsvp } from '../types';
 
 const client = axios.create({
   baseURL: import.meta.env.AKY_API_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  withCredentials: false
 });
 
 export const doHealthCheck = async () => {
@@ -38,8 +34,6 @@ export const findParty = async (search: string) => {
     console.error(err);
   }
 };
-
-
 
 //submit will be similar to findParty (first arg url second arg search)
 //takes in an rsvp view model to send to the server 

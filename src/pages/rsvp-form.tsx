@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 
 export type RsvpFormProps = {
   party: Party;
-  // setParty: setParty;
 };
 
 export type RsvpFormType = {
@@ -27,9 +26,11 @@ const refreshPage = () => {
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   const { data: mealOptions, isLoading } = useQuery(
-    ['get-meals'],
+    ['get-meals'] ,
     () => getMealOptions()
   );
+
+  const navigate = useNavigate();
 
   const handleSubmit = useCallback(async (values: RsvpFormType) => {
     const submission: Rsvp = {
@@ -49,19 +50,12 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
     };
 
     const result = await submitParty(submission);
-    
-    console.log('result', result);
-    // post
-    /*
-      2. in handleSubmit, change the data from the object formik is giving you into what the db requires 
-      3. call new post function
-      4. check result
-      5. kick to thank you page OR show server errors
 
-      if (!200) {error}
-    const navigate = useNavigate();
-    */
-  }, [party.partyId]);
+    if (result?.status === 200) {
+      navigate('/confirmation');
+    }
+
+  }, [ party.partyId, navigate ]);
 
 
   const initialValues: RsvpFormType = {
@@ -102,13 +96,8 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
               )
             })}
           >
-            {({ values, errors }) => (
+            {({ values }) => (
               <Form>
-                {errors && (
-                  <div>
-                    {JSON.stringify(errors)}
-                  </div>
-                )}
                 <div className="input-group">
                   <FieldArray name="guests">
                     {() => values.guests.map((guest, index) => (
