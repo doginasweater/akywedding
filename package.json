@@ -8,7 +8,8 @@
     "build": "tsc --noEmit && tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --fix ./src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.4",
@@ -19,12 +20,16 @@
     "framer-motion": "^6.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.3.0"
+    "react-query": "^3.39.2",
+    "react-router-dom": "^6.3.0",
+    "react-router-hash-link": "^2.4.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "^18.6.2",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/react-router-hash-link": "^2.4.5",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "@vitejs/plugin-react": "^2.0.0",
@@ -33,12 +38,8 @@
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
     "sass": "^1.53.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
-  },
-  "lint-staged": {
-    "./src/**/*.{js,jsx,ts,tsx}": "eslint --fix"
   }
 }

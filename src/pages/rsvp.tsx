@@ -1,7 +1,20 @@
-export const Rsvp = () => {
+import { useCallback, useState } from 'react';
+import React from 'react';
+import { RsvpSearch } from './rsvp-search';
+import { RsvpForm } from './rsvp-form';
+import { Party } from '../types';
 
-  return (
-    <h1>RSVP</h1>
-    
-  );
+
+export const Rsvp: React.FC = () => {
+  const [ party, setParty ] = useState<Party>();
+
+  const handleFindParty = useCallback((party: Party) => {
+    setParty(party);
+  }, []);
+
+  if (!party) {
+    return <RsvpSearch onFound={handleFindParty} />;
+  }
+
+  return <RsvpForm party={party} />;
 };

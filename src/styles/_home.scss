@@ -1,0 +1,84 @@
+@use './colours';
+@use './fonts';
+
+.home {
+  .main-section {
+    background: url("../images/_DSC7364_websize.jpg") no-repeat;
+    background-size: cover;
+    background-position: 50%;
+
+    height: 80vh;
+    overflow: hidden;
+
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+
+    .header-text {
+      text-align: center;
+
+      h1 {
+        font-size: 8rem;
+        font-family: fonts.$ms-madi;
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    .details {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      box-shadow: 15px rgba(0, 0, 0, 0.1);
+      color: rgba(255, 255, 255, 0.9);
+      font-family: fonts.$lateef;
+      padding: 10px 25px;
+      text-align: center;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .event {
+    text-align: center;
+    padding: 1rem;
+
+
+    p {
+      font-family: fonts.$cardo;
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+
+  }
+
+  h4 {
+    font-size: 4rem;
+    font-family: fonts.$ms-madi;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    font-family: fonts.$cardo;
+  }
+
+  .story {
+
+    text-align: center;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+
+    p {
+
+      font-family: fonts.$cardo;
+      font-size: 1.1rem;
+    }
+  }
+}

@@ -1,5 +1,12 @@
+import { Link } from '@chakra-ui/react';
+import '../styles/styles.scss';
+
 export const Footer: React.FC = () => {
   return (
-    <h1>Header! Find me in src/layout/footer.tsx</h1>
+
+
+    <div className="footer">
+      <p>contact: 514 553 3676 / akymacd@gmail.com </p>
+      made with 💖 by <Link href="http://github.com/solidquartz" isExternal>aky</Link> + <Link href="http://github.com/myopicmage" isExternal>kevin</Link></div>
   );
 };

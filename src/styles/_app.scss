@@ -1,0 +1,9 @@
+@use './header';
+
+html {
+  font-size: 16px;
+}
+
+main {
+  padding-top: header.$header-height;
+}

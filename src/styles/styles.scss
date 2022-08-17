@@ -1,2 +1,18 @@
 @use "app";
-@use "index";
+@use "buttons";
+@use "colours";
+@use "fonts";
+@use "header";
+@use "layout";
+@use "mixins";
+@use "home";
+@use "travel";
+@use "registry";
+@use "forms";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+

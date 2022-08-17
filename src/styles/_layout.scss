@@ -1,0 +1,13 @@
+@use './colours';
+@use './fonts';
+
+.footer {
+  background-color: rgba(147, 114, 133, .4);
+  text-align: center;
+  bottom: 0rem;
+
+  width: 100%;
+  padding: .4rem;
+  color: colours.$amnesia-purple;
+  font-family: fonts.$raleway;
+}
