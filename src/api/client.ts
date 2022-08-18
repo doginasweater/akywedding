@@ -60,4 +60,4 @@ export const deleteRsvp = async (id: number) => {
   const result = await client.delete(`/admin/${id}`);
 
   return result?.status === 201;
-}
+};

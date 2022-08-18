@@ -4,7 +4,7 @@ import { getMealOptions } from '../../api';
 
 export const AdminHome: React.FC = () => {
   const { data: mealOptions, isLoading } = useQuery(
-    ['get-meals'],
+    [ 'get-meals' ],
     () => getMealOptions()
   );
 

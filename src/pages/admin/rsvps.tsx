@@ -1,8 +1,8 @@
-import { Button, List, ListItem, Spinner, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { useCallback } from "react";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { deleteRsvp, getMealOptions, getRsvps } from "../../api";
-import { GuestDto, MealOption } from "../../types";
+import { Button, List, ListItem, Spinner, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { useCallback } from 'react';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { deleteRsvp, getMealOptions, getRsvps } from '../../api';
+import { GuestDto, MealOption } from '../../types';
 
 const processGuest = (guest: GuestDto, mealOptions: MealOption[]) => {
   const selectedMeal = mealOptions.find(x => x.meal_id === guest.meal_id);
@@ -41,7 +41,7 @@ export const RSVPs: React.FC = () => {
 
   const handleDelete = useCallback(async (id: number) => {
     await mutateAsync(id);
-  }, []);
+  }, [mutateAsync]);
 
   if (isLoading || rsvpsLoading || deleteLoading) {
     return <Spinner />;
@@ -87,4 +87,4 @@ export const RSVPs: React.FC = () => {
       </Table>
     </TableContainer>
   );
-}
+};
