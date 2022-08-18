@@ -6,7 +6,8 @@ export const Footer: React.FC = () => {
 
 
     <div className="footer">
-      <p>contact: 514 553 3676 / akymacd@gmail.com </p>
+      <p>contact aky: 514 553 3676 / akymacd@gmail.com </p>
+      <p>contact andrew: 514 679 2106 / andrewkomar@gmail.com</p>
       made with 💖 by <Link href="http://github.com/solidquartz" isExternal>aky</Link> + <Link href="http://github.com/myopicmage" isExternal>kevin</Link></div>
   );
 };
