@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { MealOption, Party, Rsvp } from '../types';
+import { AdminRsvpViewModel, MealOption, Party, Rsvp } from '../types';
 
 const client = axios.create({
   baseURL: import.meta.env.AKY_API_URL,
@@ -45,3 +45,19 @@ export const submitParty = async (values: Rsvp) => {
     console.error(err);
   }
 };
+
+export const getRsvps = async () => {
+  const result = await client.get<AdminRsvpViewModel[]>('/admin/rsvps');
+
+  if (result.status === 200 && result.data) {
+    return result.data;
+  }
+
+  return null;
+};
+
+export const deleteRsvp = async (id: number) => {
+  const result = await client.delete(`/admin/${id}`);
+
+  return result?.status === 201;
+}

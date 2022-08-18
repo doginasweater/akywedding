@@ -12,3 +12,12 @@ export type GuestDto = {
   meal_id: number;
   dietary_restrictions: string;
 };
+
+export type AdminRsvpViewModel = {
+  rsvp_id: number;
+  music: string;
+  comments: string;
+  guests: GuestDto[];
+  created_at: Date;
+  updated_at: Date;
+};

@@ -4,7 +4,7 @@ import { findParty } from '../api';
 import { Formik, Form } from 'formik';
 import { TextField } from '../components';
 import { Party } from '../types';
-import * as Yup from 'yup';
+import { object, string, SchemaOf } from 'yup';
 
 export type RsvpSearchProps = {
   onFound: (party: Party) => void;
@@ -14,6 +14,10 @@ export type RsvpSearchType = {
   name: string;
 };
 
+const validationSchema: SchemaOf<RsvpSearchType> = object({
+  name: string().required('Please enter your name')
+});
+
 export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
   const handleSubmit = useCallback(async (values: RsvpSearchType) => {
     const result = await findParty(values.name);
@@ -21,7 +25,7 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
     if (result?.data) {
       onFound(result.data);
     }
-  }, [ onFound ]);
+  }, [onFound]);
 
   const initialValues: RsvpSearchType = {
     name: ''
@@ -34,24 +38,23 @@ export const RsvpSearch: React.FC<RsvpSearchProps> = ({ onFound }) => {
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
-            validationSchema={Yup.object({
-              name: Yup.string()
-                .required('Please enter your name')
-            })}>
-            
+            validationSchema={validationSchema}
+          >
+
             <Form>
 
               <div className="input-group">
                 Please enter the full name of one guest as it appears on your invitation
-                <TextField
-                  name="name"
-                  
-                />
+                <TextField name="name" />
               </div>
 
-              <Button type="submit"
+              <Button
+                type="submit"
                 colorScheme="blackAlpha"
-                size="md">CONFIRM</Button>
+                size="md"
+              >
+                CONFIRM
+              </Button>
             </Form>
           </Formik>
         </div>
