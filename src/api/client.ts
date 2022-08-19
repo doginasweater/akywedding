@@ -57,7 +57,7 @@ export const getRsvps = async () => {
 };
 
 export const deleteRsvp = async (id: number) => {
-  const result = await client.delete(`/admin/${id}`);
+  const result = await client.delete(`/admin/rsvp/${id}`);
 
   return result?.status === 201;
 };
