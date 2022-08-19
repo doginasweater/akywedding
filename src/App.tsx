@@ -7,17 +7,12 @@ import {
   Registry,
   Confirmation,
   AdminHome,
-  RSVPs
+  RSVPs,
+  MealOptions
 } from './pages';
 
 export const App: React.FC = () => (
   <Router>
-    <Routes>
-      <Route path="admin" element={<AdminLayout />}>
-        <Route index element={<AdminHome />} />
-        <Route path="rsvps" element={<RSVPs />} />
-      </Route>
-    </Routes>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -25,6 +20,11 @@ export const App: React.FC = () => (
         <Route path="registry" element={<Registry />} />
         <Route path="rsvp" element={<Rsvp />} />
         <Route path="confirmation" element={<Confirmation />} />
+      </Route>
+      <Route path="admin" element={<AdminLayout />}>
+        <Route index element={<AdminHome />} />
+        <Route path="rsvps" element={<RSVPs />} />
+        <Route path="meal-options" element={<MealOptions />} />
       </Route>
     </Routes>
   </Router>

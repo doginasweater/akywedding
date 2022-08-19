@@ -6,14 +6,15 @@ import '../../styles/admin.scss';
 const sidebarLinks = [
   {
     to: '/admin',
-    text: 'Home'
+    text: 'Home',
+    end: true
   },
   {
-    to: '/admin/rsvps',
+    to: 'rsvps',
     text: 'RSVPs'
   },
   {
-    to: '/admin/meal-options',
+    to: 'meal-options',
     text: 'Meal Options'
   }
 ];
@@ -28,7 +29,9 @@ export const AdminLayout: React.FC = () => (
         <List spacing={3}>
           {sidebarLinks.map(x => (
             <ListItem key={x.to}>
-              <Button as={NavLink} to={x.to} width="100%">{x.text}</Button>
+              <Button as={NavLink} to={x.to} end={x.end} width="100%">
+                {x.text}
+              </Button>
             </ListItem>
           ))}
         </List>
