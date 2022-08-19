@@ -20,20 +20,25 @@ const processGuest = (guest: GuestDto, mealOptions: MealOption[]) => {
   );
 };
 
+const processCreated = (rsvp: AdminRsvpViewModel) => {
+  const sent = new Date(rsvp.created_at);
+
+  if (sent.getFullYear() === 2022) {
+    return sent.toLocaleString();
+  }
+
+  const guest = rsvp.guests[0];
+
+  return new Date(guest?.updated_at ?? '').toLocaleString();
+};
+
 export const RSVPs: React.FC = () => {
   const queryClient = useQueryClient();
   const [ toDelete, setToDelete ] = useState<AdminRsvpViewModel | null>(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { data: mealOptions, isLoading } = useQuery(
-    [ 'get-meals' ],
-    () => getMealOptions()
-  );
-
-  const { data: rsvps, isLoading: rsvpsLoading } = useQuery(
-    [ 'get-rsvps' ],
-    () => getRsvps()
-  );
+  const { data: mealOptions, isLoading } = useQuery([ 'get-meals' ], getMealOptions);
+  const { data: rsvps, isLoading: rsvpsLoading } = useQuery([ 'get-rsvps' ], getRsvps);
 
   const { mutateAsync, isLoading: deleteLoading } = useMutation(
     (id: number) => deleteRsvp(id),
@@ -90,7 +95,7 @@ export const RSVPs: React.FC = () => {
                 </Td>
                 <Td>{x.music}</Td>
                 <Td>{x.comments}</Td>
-                <Td>{new Date(x.created_at).toLocaleString()}</Td>
+                <Td>{processCreated(x)}</Td>
                 <Td>
                   <Button onClick={() => handleDeleteClick(x)} colorScheme="red">
                     Delete
