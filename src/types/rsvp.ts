@@ -11,15 +11,4 @@ export type GuestDto = {
   is_attending: boolean;
   meal_id: number;
   dietary_restrictions: string;
-  created_at?: string;
-  updated_at?: string;
-};
-
-export type AdminRsvpViewModel = {
-  rsvp_id: number;
-  music: string;
-  comments: string;
-  guests: GuestDto[];
-  created_at: Date;
-  updated_at: Date;
 };
