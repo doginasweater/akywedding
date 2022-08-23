@@ -1,3 +1,4 @@
+export * from './admin';
 export * from './home';
 export * from './registry';
 export * from './rsvp';

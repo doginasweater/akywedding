@@ -1,6 +1,6 @@
 import { Button } from '@chakra-ui/react';
 import { FieldArray, Form, Formik } from 'formik';
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { getMealOptions, submitParty } from '../api';
 import { Select, TextField, TextArea } from '../components';
@@ -24,11 +24,34 @@ const refreshPage = () => {
   window.location.reload();
 };
 
+const shouldDisable = (guest: Guest): boolean => {
+  if (guest.is_attending === 'false') {
+    return true;
+  }
+
+  if (guest.is_child) {
+    return true;
+  }
+
+  return false;
+};
+
+const validationSchema = Yup.object({
+  guests: Yup.array().of(
+    Yup.object({
+      is_attending: Yup.string()
+        .required('Please select an option'),
+      meal_id: Yup.string()
+        .when('is_attending', {
+          is: true,
+          then: Yup.string().required('Please select an option')
+        })
+    })
+  )
+});
+
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
-  const { data: mealOptions, isLoading } = useQuery(
-    [ 'get-meals' ] ,
-    () => getMealOptions()
-  );
+  const { data: mealOptions, isLoading } = useQuery([ 'get-meals' ], getMealOptions);
 
   const navigate = useNavigate();
 
@@ -37,16 +60,14 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
       partyId: party.partyId,
       music: values.music,
       comments: values.comments,
-      guests: values.guests.map(guest => {
-        return {
-          guest_id: Number(guest.guest_id),
-          name: guest.name,
-          is_attending: (guest.is_attending === 'true'),
-          meal_id: Number(guest.meal_id),
-          dietary_restrictions: guest.dietary_restrictions,
-          is_child: guest.is_child,
-        };
-      })
+      guests: values.guests.map(guest => ({
+        guest_id: Number(guest.guest_id),
+        name: guest.name,
+        is_attending: (guest.is_attending === 'true'),
+        meal_id: Number(guest.meal_id),
+        dietary_restrictions: guest.dietary_restrictions,
+        is_child: guest.is_child,
+      }))
     };
 
     const result = await submitParty(submission);
@@ -58,7 +79,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
   }, [ party.partyId, navigate ]);
 
 
-  const initialValues: RsvpFormType = {
+  const initialValues: RsvpFormType = useMemo(() => ({
     music: '',
     comments: '',
     guests: party.guests.map(p => ({
@@ -66,14 +87,22 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
       is_child: p.is_child,
       name: p.name,
       is_attending: '',
-      meal_id: '',
+      meal_id: p.is_child ? '4' : '',
       dietary_restrictions: ''
     })),
-  };
+  }), [ party.guests ]);
 
   if (isLoading) {
     return <div>Loading meals...</div>;
   }
+
+  const meals = mealOptions?.data
+    .filter(x => x.meal_id < 4)
+    .map(opt => (
+      <option value={opt.meal_id} key={`option-${opt.meal_id}`}>
+        {opt.name}
+      </option>
+    ));
 
   return (
     <div className="rsvp-full-form-container">
@@ -85,16 +114,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
-            validationSchema={Yup.object({
-              guests: Yup.array().of(
-                Yup.object({
-                  is_attending: Yup.string()
-                    .required('Please select an option'),
-                  meal_id: Yup.string()
-                    .required('Please select an option')
-                })
-              )
-            })}
+            validationSchema={validationSchema}
           >
             {({ values }) => (
               <Form>
@@ -104,18 +124,23 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
                       <div style={{ border: '0px solid #ececec' }} key={`guest-${guest.guest_id}`}>
                         <h3>{values.guests[index].name}</h3>
 
-
                         <Select name={`guests.${index}.is_attending`} placeholder="Will you be joining us?">
                           <option value="false">No</option>
                           <option value="true">Yes</option>
                         </Select>
 
-                        <Select name={`guests.${index}.meal_id`} placeholder="Meal Selection" isDisabled={values.guests[index].is_attending === 'false'}>
-                          {mealOptions?.data.map((opt) => (
-                            <option value={opt.meal_id} key={`option-${opt.meal_id}`}>
-                              {opt.name}
+                        
+                        <Select
+                          name={`guests.${index}.meal_id`}
+                          placeholder="Meal Selection"
+                          isDisabled={shouldDisable(values.guests[index])}
+                        >
+                          {values.guests[index].is_child && (
+                            <option value={4} key="option-4">
+                              Children's Meal (under 12)
                             </option>
-                          ))}
+                          )}
+                          {values.guests[index].is_child && meals}
                         </Select>
 
                         <TextField
