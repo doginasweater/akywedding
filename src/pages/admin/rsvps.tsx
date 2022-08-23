@@ -8,13 +8,21 @@ import { DeleteRsvpDialog } from './delete-rsvp.dialog';
 const processGuest = (guest: GuestDto, mealOptions: MealOption[]) => {
   const selectedMeal = mealOptions.find(x => x.meal_id === guest.meal_id);
 
+  let mealName = 'Meal not found';
+
+  if (guest.meal_id === 0) {
+    mealName = 'Not attending';
+  } else if (selectedMeal?.name) {
+    mealName = selectedMeal.name;
+  }
+
   return (
     <List spacing={1}>
       <ListItem>
         <b>{guest.name}</b>: {guest.is_attending ? 'Attending' : 'Not Attending'}
       </ListItem>
       <ListItem>
-        <b>Meal Choice</b>: {selectedMeal?.name ?? 'Meal not found'}
+        <b>Meal Choice</b>: {mealName}
       </ListItem>
     </List>
   );
