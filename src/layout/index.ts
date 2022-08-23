@@ -1,2 +1,3 @@
-export * from './admin';
-export * from './client';
+export * from './footer';
+export * from './header';
+export * from './layout';
