@@ -51,7 +51,7 @@ const validationSchema = Yup.object({
 });
 
 export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
-  const { data: mealOptions, isLoading } = useQuery([ 'get-meals' ], getMealOptions);
+  const { data: mealOptions, isLoading } = useQuery(['get-meals'], getMealOptions);
 
   const navigate = useNavigate();
 
@@ -76,7 +76,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
       navigate('/confirmation');
     }
 
-  }, [ party.partyId, navigate ]);
+  }, [party.partyId, navigate]);
 
 
   const initialValues: RsvpFormType = useMemo(() => ({
@@ -90,7 +90,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
       meal_id: p.is_child ? '4' : '',
       dietary_restrictions: ''
     })),
-  }), [ party.guests ]);
+  }), [party.guests]);
 
   if (isLoading) {
     return <div>Loading meals...</div>;
@@ -129,7 +129,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
                           <option value="true">Yes</option>
                         </Select>
 
-                        
+
                         <Select
                           name={`guests.${index}.meal_id`}
                           placeholder="Meal Selection"
@@ -140,7 +140,7 @@ export const RsvpForm: React.FC<RsvpFormProps> = ({ party }) => {
                               Children's Meal (under 12)
                             </option>
                           )}
-                          {values.guests[index].is_child && meals}
+                          {!values.guests[index].is_child && meals}
                         </Select>
 
                         <TextField
