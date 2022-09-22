@@ -1,4 +1,4 @@
-### My Wedding Website
+# My Wedding Website
 
 Visit the live site!
 [akyandrew2022.com](http://akyandrew2022.com)
@@ -19,7 +19,7 @@ Reusable forms with validation were built with Formik and Yup, including element
 The names of each guest in the party are pre-filled in the RSVP form. Based on the type of guest, child or adult, the forms will pre-fill, assuring each guest can choose the correct meal options. If the user types their name incompletely or incorrectly, there is the option to start over. Validation is used precisely to ensure the correct data is entered for each guest and nothing is missing. Nothing worse than showing up to a wedding and getting the chicken when you asked for the beef, am I right?
 
 ## Tech Stack
-# Front End
+### Front End
 - Typescript
 - React
 - Sass
@@ -27,7 +27,7 @@ The names of each guest in the party are pre-filled in the RSVP form. Based on t
 - Formik
 - Yup
 
-# Back End
+### Back End
 [The backend repo is found here](https://github.com/doginasweater/akywedding-backend)
 - C#
 - .NET
