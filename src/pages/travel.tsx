@@ -15,13 +15,14 @@ export const Travel: React.FC = () => {
 
       <h3>Getting to Cave Spring Vineyard</h3>
       <p>The ceremony at Cave Spring Vineyard is about a 10 minute drive from the reception at Inn on the Twenty. Alternative forms of transportation are not as widely available, and parking is limited, so carpooling is encouraged.</p>
-      <p>PLEASE NOTE! The ceremony is not at the Cave Spring cellar and retail facility on Main Street, Jordan. Rather, it is at the Vineyard itself in Beamsville. The ceremony will be held at the Escarpment site. There will be signage, but knowing where to go ahead of time is strongly encouraged to avoid lateness.</p>
+      <p><strong>PLEASE NOTE!</strong></p>
+      <p>The ceremony is not at the Cave Spring cellar and retail facility on Main Street, Jordan. Rather, it is at the Vineyard itself in Beamsville. The ceremony will be held at the Escarpment site. There will be signage, but knowing where to go ahead of time is strongly encouraged to avoid lateness.</p>
       <p><strong>Cave Spring Vineyard, 4043 Cave Spring Road, Beamsville, Ontario, L3J 0W5</strong></p>
       <p>GPS Coordinates: 43.15325 N, 79.43967 W</p>
 
       <h3>Safety Information</h3>
       <p>Please note that smoking is absolutely not permitted while at the Vineyard due to risk of fire.</p>
-      <p>Because grapes don't like shade, if it's a sunny day, prepare to be in direct sunlight for about half an hour. Parasols are permitted. If it's a chilly day, feel free to bring a blanket to keep warm. In the event of rain or other inclement weather, the ceremony will be held indoors at a facility a short walk from the Escarpment.</p>
+      <p>Because grapes don't like shade, if it's a sunny day, prepare to be in direct sunlight for about half an hour. If it's a chilly day, feel free to bring a blanket to keep warm. In the event of rain or other inclement weather, the ceremony will be held indoors at a facility a short walk from the Escarpment.</p>
       <p>While there are no longer any pandemic restrictions in effect in Ontario, we ask that guests be fully vaccinated. Whether or not to wear a mask is completely up to your personal level of comfort, and if it makes you feel more comfortable to wear one (that you don't mind having in photos), please do so. We also ask you to be courteous and ask before hand shaking, hugging, etc. other guests in case they are not comfortable with close contact. We would like everyone to feel as safe as possible.</p>
 
         <h3>Getting to Niagara</h3>
