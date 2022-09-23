@@ -29,12 +29,12 @@ export const Home: React.FC = () => {
             <h5>Ceremony</h5>
 
             <p>Cave Spring Vineyard</p>
-            <p className="subtitle">Niagara, Ontario</p>
+            <p className="subtitle">Beamsville, Ontario</p>
             <p>4:00PM</p>
             <p>~</p>
             <h5>Reception</h5>
             <p>Inn on the Twenty</p>
-            <p className="subtitle">Niagara, Ontario</p>
+            <p className="subtitle">Jordan, Ontario</p>
             <p>5:30PM - 1:00AM</p>
             <p>Join us for cocktails, dinner, wine, and dancing</p>
           </div>
