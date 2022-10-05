@@ -1,4 +1,4 @@
-import { Box, Button, List, ListItem, SimpleGrid, Skeleton, Stat, StatLabel, StatNumber, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { Box, SimpleGrid, Skeleton, Stat, StatLabel, StatNumber, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 import { useQuery } from 'react-query';
 import {
   getMealCounts,

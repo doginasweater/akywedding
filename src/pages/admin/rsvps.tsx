@@ -76,7 +76,7 @@ export const RSVPs: React.FC = () => {
 
   return (
     <>
-      <TableContainer maxWidth={1100} whiteSpace="wrap">
+      <TableContainer maxWidth={1100} whiteSpace="normal">
         <Table size="sm" variant="striped">
           <Thead>
             <Tr>
