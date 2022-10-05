@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { AdminRsvpViewModel, MealOption, Party, Rsvp } from '../types';
+import {
+  AdminRsvpViewModel,
+  MealOption,
+  Party,
+  Rsvp,
+  MealCount,
+  AttendingGuests,
+} from '../types';
 
 const client = axios.create({
   baseURL: import.meta.env.AKY_API_URL,
@@ -19,6 +26,27 @@ export const doHealthCheck = async () => {
 export const getMealOptions = async () => {
   try {
     const result = await client.get<MealOption[]>('/rsvp/meals');
+
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getMealCounts = async () => {
+  try {
+    const result = await client.get<MealCount[]>('/admin/meal-counts');
+
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+export const getAttendingGuests = async () => {
+  try {
+    const result = await client.get<AttendingGuests>('/admin/attending-guests');
 
     return result;
   } catch (err) {
